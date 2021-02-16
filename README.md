@@ -5,5 +5,6 @@ than with the help of matplotlib we will plot bar charts and various other chart
 
 questions we answered in this project were-
 1. which is the best month in which most sales happened?
-2.what is the best time to advertise so that likelyhood of purchase increases?
-3.which product sold the most?
+2.city with most sales? 
+3.what is the best time to advertise so that likelyhood of purchase increases?
+4.which product sold the most?
