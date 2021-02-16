@@ -41,12 +41,12 @@ for key,df in monthly_sale:
 a=list.index(max(list))
 
 #plotting bar chart
-
+'''
 plt.bar(month,list)
 plt.xlabel("Months")
 plt.ylabel("Sales")
 plt.xticks(month)
-plt.show()
+plt.show()'''
 #as our bar chart shows that best month for sales was December.
 
 #question-2 : city with most sales
@@ -58,12 +58,18 @@ def get_city(address):
 sales_data["City"]= sales_data["Purchase Address"].apply( lambda x: get_city(address=x) )
 
 city_sale = sales_data.groupby(by='City').sum()
-print(city_sale)
 
 City=[city for city,key in sales_data.groupby(by = 'City') ]
-plt.bar(City,city_sale["Sales"])
+
+'''plt.bar(City,city_sale["Sales"])
 plt.xlabel("Cities")
 plt.ylabel("Sales")
 plt.xticks(City,rotation = 'vertical',fontsize = 8 )
-plt.show()
+plt.show()'''
 #as the bar chart shows san fransisco is the city with most sales
+
+#question 2- what time should we display the ads so that customer is most likely to buy our products
+#print(sales_data["Order Date"])
+sales_data['Time'] = sales_data['Order Date'].apply(lambda x: x.split(" ")[1])
+sales_data['Order Date'] = pd.to_datetime(sales_data['Order Date'])
+print(sales_data["Order Date"])
