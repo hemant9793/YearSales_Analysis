@@ -22,7 +22,7 @@ sales_data["Months"] = sales_data["Order Date"].str[0:2]
 sales_data["Months"] = sales_data["Months"].astype('int')
 
 
-#best month for sale and how much was earned in that month
+#question 1 -best month for sale and how much was earned in that month?
 
 #adding sales column to ans our question
 sales_data['Quantity Ordered'] = pd.to_numeric(sales_data['Quantity Ordered'])
@@ -49,7 +49,7 @@ plt.xticks(month)
 plt.show()
 #as our bar chart shows that best month for sales was December.
 
-#question-2 : city with most sales
+#question-2 : city with most sales?
 #first we have to extract city from the purchase address column
 #lets get the city and make a new column of it
 #we can also define a function which can also be passed to the apply method
@@ -68,8 +68,3 @@ plt.xticks(City,rotation = 'vertical',fontsize = 8 )
 plt.show()
 #as the bar chart shows san fransisco is the city with most sales
 
-#question 2- what time should we display the ads so that customer is most likely to buy our products
-#print(sales_data["Order Date"])
-sales_data['Time'] = sales_data['Order Date'].apply(lambda x: x.split(" ")[1])
-sales_data['Order Date'] = pd.to_datetime(sales_data['Order Date'])
-print(sales_data["Order Date"])
