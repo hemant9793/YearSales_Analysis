@@ -48,3 +48,22 @@ plt.ylabel("Sales")
 plt.xticks(month)
 plt.show()
 #as our bar chart shows that best month for sales was December.
+
+#question-2 : city with most sales
+#first we have to extract city from the purchase address column
+#lets get the city and make a new column of it
+#we can also define a function which can also be passed to the apply method
+def get_city(address):
+    return f"{address.split(',')[1]} ({address.split(',')[2].split(' ')[1]})"
+sales_data["City"]= sales_data["Purchase Address"].apply( lambda x: get_city(address=x) )
+
+city_sale = sales_data.groupby(by='City').sum()
+print(city_sale)
+
+City=[city for city,key in sales_data.groupby(by = 'City') ]
+plt.bar(City,city_sale["Sales"])
+plt.xlabel("Cities")
+plt.ylabel("Sales")
+plt.xticks(City,rotation = 'vertical',fontsize = 8 )
+plt.show()
+#as the bar chart shows san fransisco is the city with most sales
